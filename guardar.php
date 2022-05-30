@@ -1,6 +1,6 @@
 <?php
 
-include("conexion.php");
+include("db.php");
 
 if (isset($_POST['registrar'])) {
 	if (strlen($_POST['nocuenta'])>= 1 &&
@@ -15,21 +15,13 @@ if (isset($_POST['registrar'])) {
     	$email= trim($_POST['email']);
 
     	$consulta= "INSERT INTO alumno(cuenta, nombre, apellido_pat, apellido_mat, email) VALUES ('$nocuenta','$name','$apellidopat','$apellidomat','$email')";
-    	$resultado= mysqli_query($conex,$consulta);
-    	if ($resultado) {
-    		?>
-    		<h3 class="ok">Alumno Registrado</h3>
-    		<?php
-    	}else{
-    		?>
-    		<h3 class="bad">HA OCURRIDO UN ERROR</h3>
-    		<?php
-    	}
-	}else{
-		?>
-		<h3 class="bad">Favor de Completar los Campos</h3>
-		<?php
-	}
+    	$resultado= mysqli_query($conn,$consulta);
+
+    	$_SESSION['message'] = 'Alumno Registrado';
+    	$_SESSION['message_type'] = 'success';
+
+    	header("Location: index.php");
+    }
 }
 
 ?>
