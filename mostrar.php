@@ -43,12 +43,11 @@ include("includes/header.php")
     </table>
 </div>
 <div class="container p-4">
-        <div class="row">
-            <div class="col-md-4">
-                <form action="index.php">
-                    <input type="submit" name="regresar" class="btn btn-success btn_block" value="Ingresar Nuevo Alumno">
-                </form>
-            </div>
+    <div class="row">
+        <div class="col-md-4">
+            <form action="index.php">
+                <input type="submit" name="regresar" class="btn btn-success btn_block" value="Ingresar Nuevo Alumno">
+            </form>
         </div>
     </div>
 </div>
